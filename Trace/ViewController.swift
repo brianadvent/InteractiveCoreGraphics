@@ -8,13 +8,21 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, LogoTraceDelegate {
 
+    @IBOutlet weak var statusLabel: UILabel!
+    @IBOutlet weak var traceView: LogoView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        traceView.delegate = self
     }
 
+    
+    func logoTraceComplete() {
+        statusLabel.text = "Trace complete"
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
